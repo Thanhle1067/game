@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Punishment Wheel Overlay</title>
+  <meta charset="UTF-8"/>
+  <title>Punishment Wheel</title>
   <link rel="stylesheet" href="./style.css"/>
   <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
   <div class="top-bar"><div class="pointer"></div></div>
-  <div class="container">
+  <div class="container hidden">
     <div class="canvas-wrap">
       <canvas id="wheel" width="800" height="800"></canvas>
     </div>
@@ -19,7 +18,6 @@
     </div>
     <div class="controls">
       <button id="spinBtn">Quay</button>
-      <button id="fsBtn">Full Screen</button>
     </div>
     <div class="result">—</div>
   </div>
