@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Test Wheel</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <style>
+    body{background:#0b1020;color:#e5e7eb}
+    .panel{max-width:720px;margin:40px auto;background:rgba(255,255,255,.04);padding:24px;border-radius:16px;border:1px solid rgba(255,255,255,.12)}
+    label{display:block;margin-top:8px;font-size:14px}
+    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff}
+    .row{display:flex;gap:12px}
+    .row>*{flex:1}
+    .actions{margin-top:16px;display:flex;gap:12px}
+  </style>
+  <script>
+  async function sendGift(){
+    const username = document.getElementById('username').value || 'Tester';
+    const type = document.getElementById('type').value || 'gift';
+    const amount = document.getElementById('amount').value || 1;
+    const sec = document.getElementById('sec').value || 0;
+    const url = `/api/gift?u=${encodeURIComponent(username)}&type=${encodeURIComponent(type)}&amount=${amount}&sec=${sec}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    document.getElementById('resp').textContent = JSON.stringify(data, null, 2);
+  }
+  </script>
+</head>
+<body>
+  <div class="panel">
+    <h2>Admin Test</h2>
+    <div class="row">
+      <div>
+        <label>Username</label>
+        <input id="username" placeholder="Tester"/>
+      </div>
+      <div>
+        <label>Type</label>
+        <input id="type" placeholder="gift / rescue / ..."/>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Amount</label>
+        <input id="amount" type="number" value="1"/>
+      </div>
+      <div>
+        <label>Sec (optional)</label>
+        <input id="sec" type="number" value="0"/>
+      </div>
+    </div>
+    <div class="actions">
+      <button onclick="sendGift()">Send Test Gift → Spin</button>
+      <a href="/overlay.html" target="_blank"><button>Open Overlay</button></a>
+    </div>
+    <pre id="resp" style="margin-top:16px;white-space:pre-wrap;"></pre>
+    <hr style="margin:24px 0;opacity:.3"/>
+    <p><strong>Segments (punishments):</strong> You can customize via URL param on overlay, for example:</p>
+    <code>/overlay.html?segments=H%C3%ADt%20%C4%91%E1%BA%A5t%2010%20c%C3%A1i,U%E1%BB%91ng%20n%C6%B0%E1%BB%9Bc%201%20ly,Nh%E1%BA%A3y%2030s</code>
+  </div>
+</body>
+</html>
