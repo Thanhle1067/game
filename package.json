@@ -1,0 +1,15 @@
+{
+  "name": "overlay-prison-postget-bomb",
+  "version": "2.2.0",
+  "private": true,
+  "description": "OBS overlay with prison bars, GET/POST endpoints, debug page, and bomb explosion on rescue.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0"
+  }
+}
