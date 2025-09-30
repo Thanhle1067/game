@@ -1,0 +1,7 @@
+html,body{height:100%;margin:0;background:transparent;overflow:hidden}
+#root{position:relative;width:100vw;height:100vh}
+.counter{position:absolute;left:50%;bottom:14vh;transform:translateX(-50%);font-family:Inter,system-ui,Arial,sans-serif;font-weight:900;font-size:clamp(40px,7vw,84px);color:#fff;text-shadow:0 6px 18px rgba(0,0,0,.65);padding:.2em .5em;border-radius:12px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.25);z-index:20}
+.hidden{display:none}
+.bars.base{position:absolute;inset:0;background:center/cover no-repeat;z-index:10}
+.bars.next{position:absolute;inset:0;background:center/cover no-repeat;transform:translateY(100%);animation:slideUp .8s ease forwards;z-index:12}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
